@@ -80,7 +80,7 @@ if [ $stage -le 0 ] && [ $stop_stage -ge 0 ]; then
   #   ln -sfv /path/to/LibriSpeech $dl_dir/LibriSpeech
   #
   if [ ! -d $dl_dir/LibriSpeech/train-other-500 ]; then
-    lhotse download librispeech --mini $dl_dir
+    lhotse download librispeech -p test-clean -p test-other -p dev-clean -p dev-other -p train-clean-100 $dl_dir
   fi
 
   # If you have pre-downloaded it to /path/to/musan,
