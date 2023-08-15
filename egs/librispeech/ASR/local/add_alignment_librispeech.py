@@ -42,8 +42,6 @@ DATASET_PARTS = [
     "test-clean",
     "test-other",
     "train-clean-100",
-    "train-clean-360",
-    "train-other-500",
 ]
 
 
