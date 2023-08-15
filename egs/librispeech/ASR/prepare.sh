@@ -124,9 +124,7 @@ if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
   fi
 
   if [ ! -f data/fbank/librispeech_cuts_train-all-shuf.jsonl.gz ]; then
-    cat <(gunzip -c data/fbank/librispeech_cuts_train-clean-100.jsonl.gz) \
-      <(gunzip -c data/fbank/librispeech_cuts_train-clean-360.jsonl.gz) \
-      <(gunzip -c data/fbank/librispeech_cuts_train-other-500.jsonl.gz) | \
+    cat <(gunzip -c data/fbank/librispeech_cuts_train-clean-100.jsonl.gz) | \
       shuf | gzip -c > data/fbank/librispeech_cuts_train-all-shuf.jsonl.gz
   fi
 
@@ -134,8 +132,6 @@ if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
     log "Validating data/fbank for LibriSpeech"
     parts=(
       train-clean-100
-      train-clean-360
-      train-other-500
       test-clean
       test-other
       dev-clean
@@ -203,8 +199,6 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
       log "Generate data for BPE training"
       files=$(
         find "$dl_dir/LibriSpeech/train-clean-100" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-clean-360" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-other-500" -name "*.trans.txt"
       )
       for f in ${files[@]}; do
         cat $f | cut -d " " -f 2-
