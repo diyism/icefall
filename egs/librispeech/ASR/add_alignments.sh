@@ -30,8 +30,6 @@ elif [ $align == "torchaudio" ]; then
 
   parts=(
     train-clean-100
-    train-clean-360
-    train-other-500
     test-clean
     test-other
     dev-clean
