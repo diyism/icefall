@@ -52,8 +52,6 @@ def compute_fbank_librispeech():
 
     dataset_parts = (
         "train-clean-100",
-        "train-clean-360",
-        "train-other-500",
     )
     prefix = "librispeech"
     suffix = "jsonl.gz"
