@@ -93,8 +93,6 @@ def compute_fbank_librispeech(
             "test-clean",
             "test-other",
             "train-clean-100",
-            "train-clean-360",
-            "train-other-500",
         )
     else:
         dataset_parts = dataset.split(" ", -1)
